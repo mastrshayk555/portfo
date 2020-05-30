@@ -14,15 +14,15 @@ def html_page(page_name):
 
 @app.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
-    if request.method == 'POST':
-    	try:
-	    	data = request.form.to_dict()
-	    	write_to_csv(data)
-	    	return redirect('/thankyou.html')
-	    except:
-	    	return: 'Did not save to database'
-    else:
-    	return 'Something went wrong. Try again.'
+	if request.method == 'POST':
+		try:
+			data = request.form.to_dict()
+			write_to_csv(data)
+			return redirect('/thankyou.html')
+		except:
+			return 'Did not save to database'
+	else:
+		return 'Something went wrong. Try again.'
 
 #def write_to_file(data):
 #	with open('database.txt', mode='a') as database:
